@@ -13,7 +13,7 @@
                 <div class="col-md-5"></div>
                 <div class="col-md-2 border border-primary rounded">
                             <label for="username"></label>
-                            <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Email">
                             <label for="password"></label>
                             <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
                             <br>
