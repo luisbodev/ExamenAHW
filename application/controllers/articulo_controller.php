@@ -1,7 +1,7 @@
 <?php
 
 //extendemos CI_Controller
-class proveedor_controller extends CI_Controller{
+class articulo_controller extends CI_Controller{
     public function __construct() {
         //llamamos al constructor de la clase padre
         parent::__construct();
@@ -10,7 +10,7 @@ class proveedor_controller extends CI_Controller{
         $this->load->helper("url"); 
          
         //llamo o incluyo el modelo
-        $this->load->model("proveedor_model");
+        $this->load->model("articulo_model");
          
         //cargo la libreria de sesiones
         $this->load->library("session");
@@ -21,13 +21,13 @@ class proveedor_controller extends CI_Controller{
          
         //array asociativo con la llamada al metodo
         //del modelo
-        $proveedor["ver"]=$this->proveedor_model->ver();
+        $articulo["ver"]=$this->articulo_model->ver();
          
-        $titulo="Proveedor";
+        $titulo="Articulo";
         //cargo la cabecera y el pie de página
         $this->load->view("plantillas/cabecera",$titulo);
         //cargo la vista y le paso los datos
-        $this->load->view("proveedor/index_view",$proveedor);
+        $this->load->view("articulo/index_view",$articulo);
         $this->load->view("plantillas/pie");
     }
      
@@ -37,22 +37,22 @@ class proveedor_controller extends CI_Controller{
         if($this->input->post("submit")){
          
         //llamo al metodo add
-        $add=$this->proveedor_model->add(
+        $add=$this->articulo_model->add(
                 $this->input->post("nombre"),
-                $this->input->post("apellido"),
-                $this->input->post("telefono"),
-                $this->input->post("direccion")
+                $this->input->post("precio"),
+                $this->input->post("tipo"),
+                $this->input->post("id_proveedor")
                 );
         }
         if($add==true){
             //Sesion de una sola ejecución
-            $this->session->set_flashdata('correcto', 'Proveedor añadido correctamente');
+            $this->session->set_flashdata('correcto', 'Artículo añadido correctamente');
         }else{
-            $this->session->set_flashdata('incorrecto', 'Proveedor añadido Incorrectamente');
+            $this->session->set_flashdata('incorrecto', 'Error al añadir');
         }
          
         //redirecciono la pagina a la url por defecto
-        redirect(base_url("index.php/proveedor_controller/"));
+        redirect(base_url("articulo_controller/"));
     }
 
     //controlador para modificar al que
@@ -60,47 +60,47 @@ class proveedor_controller extends CI_Controller{
     //le paso por la url un parametro
     public function mod($id_proveedor){
         if(is_numeric($id_proveedor)){
-        $titulo="Proveedor";
-          $datos["mod"]=$this->proveedor_model->mod($id_proveedor);
+        $titulo="Artículo";
+          $datos["mod"]=$this->articulo_model->mod($id_proveedor);
           
           $this->load->view("plantillas/cabecera",$titulo);
-          $this->load->view("proveedor/modificar_view",$datos);
+          $this->load->view("articulo/modificar_view",$datos);
           $this->load->view("plantillas/pie");
 
           if($this->input->post("submit")){
-                $mod=$this->proveedor_model->mod(
+                $mod=$this->articulo_model->mod(
                         $id_proveedor,
                         $this->input->post("submit"),
                         $this->input->post("nombre"),
-                        $this->input->post("apellido"),
-                        $this->input->post("telefono"),
-                        $this->input->post("direccion")
+                        $this->input->post("precio"),
+                        $this->input->post("tipo"),
+                        $this->input->post("id_proveedor")
                         );
                 if($mod==true){
                     //Sesion de una sola ejecución
-                    $this->session->set_flashdata('correcto', 'Proveedor modificado correctamente');
+                    $this->session->set_flashdata('correcto', 'Artículo modificado correctamente');
                 }else{
-                    $this->session->set_flashdata('incorrecto', 'Proveedor modificado incorrectamente');
+                    $this->session->set_flashdata('incorrecto', 'Error al modificar');
                 }
-                redirect(base_url("index.php/proveedor_controller/"));
+                redirect(base_url("articulo_controller/"));
             }
         }else{
-            redirect(base_url("index.php/proveedor_controller/"));
+            redirect(base_url("articulo_controller/"));
         }
     }
      
     //Controlador para eliminar
     public function eliminar($id_proveedor){
         if(is_numeric($id_proveedor)){
-          $eliminar=$this->proveedor_model->eliminar($id_proveedor);
+          $eliminar=$this->articulo_model->eliminar($id_proveedor);
           if($eliminar==true){
-              $this->session->set_flashdata('correcto', 'proveedor eliminado correctamente');
+              $this->session->set_flashdata('correcto', 'Artículo eliminado correctamente');
           }else{
-              $this->session->set_flashdata('incorrecto', 'proveedor eliminado incorrectamente');
+              $this->session->set_flashdata('incorrecto', 'Error al eliminar');
           }
-          redirect(base_url("index.php/proveedor_controller/"));
+          redirect(base_url("articulo_controller/"));
         }else{
-            redirect(base_url("index.php/proveedor_controller/"));
+            redirect(base_url("articulo_controller/"));
         }
     }
 }
