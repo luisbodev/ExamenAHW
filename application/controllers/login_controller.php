@@ -7,12 +7,12 @@
             parent::__construct();
             //$this->load->model( 'login_model')
             //llamo al helper url
-            //$this->load->helper("url"); 
+            $this->load->helper("url"); 
             //llamo o incluyo el modelo
         
             //cargo la libreria de sesiones
-            // $this->load->library("session");
-
+            //$this->load->library("session");
+            
        }
 
        public function index()

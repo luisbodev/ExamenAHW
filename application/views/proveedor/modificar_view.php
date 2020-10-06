@@ -24,5 +24,5 @@
         <br>
         <br>
 </div>
-        <a href="<?=base_url("proveedor_controller/");?>">Volver</a>
+        <a href="<?=base_url("index.php/proveedor_controller/");?>">Volver</a>
 </center>

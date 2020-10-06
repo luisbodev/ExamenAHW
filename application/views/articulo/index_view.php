@@ -23,7 +23,7 @@
   </thead>
   <tbody>
     <tr>
-        <form action="<?=base_url("articulo_controller/add");?>" method="post">
+        <form action="<?=base_url("index.php/articulo_controller/add");?>" method="post">
             <td></td>
             <td>
                 <input type="text"  name="nombre" class="form-control">
@@ -62,8 +62,8 @@
                 <?=$fila->id_proveedor;?>
             </td>
             <td>
-                <a href="<?=base_url("articulo_controller/mod/$fila->id_articulo")?>" class="btn btn-primary">Modificar</a>
-                <a href="<?=base_url("articulo_controller/eliminar/$fila->id_articulo")?>" class="btn btn-success">Eliminar</a>
+                <a href="<?=base_url("index.php/articulo_controller/mod/$fila->id_articulo")?>" class="btn btn-primary">Modificar</a>
+                <a href="<?=base_url("index.php/articulo_controller/eliminar/$fila->id_articulo")?>" class="btn btn-success">Eliminar</a>
             </td>
         </tr>
     <?php
@@ -72,7 +72,7 @@
   </tbody>
 </table>
 <br>
-<a href="<?=base_url("pages_controller/");?>">Volver</a>
+<a href="<?=base_url("index.php/pages_controller/");?>">Volver</a>
 </center>
 
 

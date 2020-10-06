@@ -72,7 +72,7 @@
   </tbody>
 </table>
 <br>
-<a href="<?=base_url("pages_controller/");?>">Volver</a>
+<a href="<?=base_url("index.php/pages_controller/");?>">Volver</a>
 </center>
 
 

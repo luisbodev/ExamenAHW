@@ -52,7 +52,7 @@ class articulo_controller extends CI_Controller{
         }
          
         //redirecciono la pagina a la url por defecto
-        redirect(base_url("articulo_controller/"));
+        redirect(base_url("index.php/articulo_controller/"));
     }
 
     //controlador para modificar al que
@@ -82,10 +82,10 @@ class articulo_controller extends CI_Controller{
                 }else{
                     $this->session->set_flashdata('incorrecto', 'Error al modificar');
                 }
-                redirect(base_url("articulo_controller/"));
+                redirect(base_url("index.php/articulo_controller/"));
             }
         }else{
-            redirect(base_url("articulo_controller/"));
+            redirect(base_url("index.php/articulo_controller/"));
         }
     }
      
@@ -98,9 +98,9 @@ class articulo_controller extends CI_Controller{
           }else{
               $this->session->set_flashdata('incorrecto', 'Error al eliminar');
           }
-          redirect(base_url("articulo_controller/"));
+          redirect(base_url("index.php/articulo_controller/"));
         }else{
-            redirect(base_url("articulo_controller/"));
+            redirect(base_url("index.php/articulo_controller/"));
         }
     }
 }
