@@ -11,7 +11,7 @@
             //llamo o incluyo el modelo
         
             //cargo la libreria de sesiones
-            $this->load->library("session");
+            // $this->load->library("session");
 
        }
 
@@ -23,7 +23,7 @@
                 if($this->login_model->login($_REQUEST['username'], $_REQUEST['password'])){
                     redirect('pages_controller');
                 }else{
-                    $this->session->set_flashdata('incorrecto', 'Datos Erroneos');
+                    // $this->session->set_flashdata('incorrecto', 'Datos Erroneos');
                     redirect(base_url());//colocar una pantalla de error
                 }
                 

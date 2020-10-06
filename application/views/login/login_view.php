@@ -5,8 +5,8 @@
     <br>
     <div class="container"> 
             <?php
-                if($this->session->flashdata('incorrecto'))
-                    echo "<div class='alert alert-danger' role='alert'>".$this->session->flashdata('incorrecto')."</div>";
+                // if($this->session->flashdata('incorrecto'))
+                //     echo "<div class='alert alert-danger' role='alert'>".$this->session->flashdata('incorrecto')."</div>";
             ?>
         <form action="" method="POST">   
             <div class="row">
