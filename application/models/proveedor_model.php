@@ -30,11 +30,11 @@ class proveedor_model extends CI_Model{
      
     public function mod($id_proveedor,$modificar="NULL",$nombre="NULL",$apellido="NULL",$telefono="NULL",$direccion="NULL"){
         if($modificar=="NULL"){
-            $consulta=$this->db->query("SELECT * FROM proveedor WHERE id_proveedot=$id_proveedor");
+            $consulta=$this->db->query("SELECT * FROM proveedor WHERE id_proveedor=$id_proveedor");
             return $consulta->result();
         }else{
           $consulta=$this->db->query("
-              UPDATE proveedir SET nombre='$nombre', apellido='$apellido',
+              UPDATE proveedor SET nombre='$nombre', apellido='$apellido',
               telefono='$telefono', direccion='$direccion' WHERE id_proveedor=$id_proveedor;
                   ");
           if($consulta==true){

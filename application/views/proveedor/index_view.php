@@ -23,7 +23,7 @@
   </thead>
   <tbody>
     <tr>
-        <form action="<?=base_url("proveedor_controller/add");?>" method="post">
+        <form action="<?=base_url("index.php/proveedor_controller/add");?>" method="post">
             <td></td>
             <td>
                 <input type="text"  name="nombre" class="form-control">
@@ -62,8 +62,8 @@
                 <?=$fila->direccion;?>
             </td>
             <td>
-                <a href="<?=base_url("proveedor_controller/mod/$fila->id_proveedor")?>" class="btn btn-primary">Modificar</a>
-                <a href="<?=base_url("proveedor_controller/eliminar/$fila->id_proveedor")?>" class="btn btn-success">Eliminar</a>
+                <a href="<?=base_url("index.php/proveedor_controller/mod/$fila->id_proveedor")?>" class="btn btn-primary">Modificar</a>
+                <a href="<?=base_url("index.php/proveedor_controller/eliminar/$fila->id_proveedor")?>" class="btn btn-success">Eliminar</a>
             </td>
         </tr>
     <?php

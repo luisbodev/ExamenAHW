@@ -52,7 +52,7 @@ class proveedor_controller extends CI_Controller{
         }
          
         //redirecciono la pagina a la url por defecto
-        redirect(base_url("proveedor_controller/"));
+        redirect(base_url("index.php/proveedor_controller/"));
     }
 
     //controlador para modificar al que
@@ -67,7 +67,7 @@ class proveedor_controller extends CI_Controller{
           $this->load->view("plantillas/pie");
 
           if($this->input->post("submit")){
-                $mod=$this->usuarios_model->mod(
+                $mod=$this->proveedor_model->mod(
                         $id_proveedor,
                         $this->input->post("submit"),
                         $this->input->post("nombre"),
@@ -81,10 +81,10 @@ class proveedor_controller extends CI_Controller{
                 }else{
                     $this->session->set_flashdata('incorrecto', 'Proveedor modificado incorrectamente');
                 }
-                redirect(base_url("proveedor_controller/"));
+                redirect(base_url("index.php/proveedor_controller/"));
             }
         }else{
-            redirect(base_url("proveedor_controller/"));
+            redirect(base_url("index.php/proveedor_controller/"));
         }
     }
      
@@ -97,9 +97,9 @@ class proveedor_controller extends CI_Controller{
           }else{
               $this->session->set_flashdata('incorrecto', 'proveedor eliminado incorrectamente');
           }
-          redirect(base_url("proveedor_controller/"));
+          redirect(base_url("index.php/proveedor_controller/"));
         }else{
-            redirect(base_url("proveedor_controller/"));
+            redirect(base_url("index.php/proveedor_controller/"));
         }
     }
 }
