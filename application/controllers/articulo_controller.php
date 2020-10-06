@@ -23,12 +23,28 @@ class articulo_controller extends CI_Controller{
         //del modelo
         $articulo["ver"]=$this->articulo_model->ver();
          
-        $titulo="Articulo";
+        $titulo["titulo"]="Articulo";
         //cargo la cabecera y el pie de página
         $this->load->view("plantillas/cabecera",$titulo);
         //cargo la vista y le paso los datos
         $this->load->view("articulo/index_view",$articulo);
         $this->load->view("plantillas/pie");
+    }
+
+    public function buscar(){
+        if($this->input->get("submit")){
+            //llamo al metodo add
+            $articulo["ver"]=$this->articulo_model->buscar(
+                $this->input->get("keyword")
+                );
+
+            $titulo["titulo"]="Articulo";
+            //cargo la cabecera y el pie de página
+            $this->load->view("plantillas/cabecera",$titulo);
+            //cargo la vista y le paso los datos
+            $this->load->view("articulo/index_view",$articulo);
+            $this->load->view("plantillas/pie");
+        }
     }
      
     //controlador para añadir
@@ -60,7 +76,7 @@ class articulo_controller extends CI_Controller{
     //le paso por la url un parametro
     public function mod($id_proveedor){
         if(is_numeric($id_proveedor)){
-        $titulo="Artículo";
+        $titulo["titulo"]="Artículo";
           $datos["mod"]=$this->articulo_model->mod($id_proveedor);
           
           $this->load->view("plantillas/cabecera",$titulo);

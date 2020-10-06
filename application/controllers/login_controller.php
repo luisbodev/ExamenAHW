@@ -25,7 +25,7 @@
                 }else{
                     // $this->session->set_flashdata('incorrecto', 'Datos Erroneos');
                     // redirect(base_url());//colocar una pantalla de error
-                    $titulo = "Ingresar";
+                    $titulo["titulo"]= "Ingresar";
                     $this->load->view("plantillas/cabecera",$titulo);
                     $this->load->view('login/login_error_view');
                     $this->load->view("plantillas/pie");
@@ -33,7 +33,7 @@
                 }
                 
            }
-           $titulo = "Ingresar";
+           $titulo["titulo"]= "Ingresar";
            $this->load->view("plantillas/cabecera",$titulo);
            $this->load->view('login/login_view');
            $this->load->view("plantillas/pie");

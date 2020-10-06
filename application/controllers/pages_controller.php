@@ -16,7 +16,7 @@ class pages_controller extends CI_Controller{
     //controlador por defecto
     public function index(){
          
-        $titulo="Proveedor";
+        $titulo["titulo"]="MENU";
         //cargo la cabecera y el pie de página
         $this->load->view("plantillas/cabecera",$titulo);
         $this->load->view("pages/index");

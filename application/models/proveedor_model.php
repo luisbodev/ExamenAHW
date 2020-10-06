@@ -17,6 +17,13 @@ class proveedor_model extends CI_Model{
         //Devolvemos el resultado de la consulta
         return $consulta->result();
     }
+    public function buscar($keyword){
+        //Hacemos una consulta
+        $consulta=$this->db->query("SELECT * FROM proveedor WHERE nombre like '%$keyword%';");
+         
+        //Devolvemos el resultado de la consulta
+        return $consulta->result();
+    }
      
     public function add($nombre,$apellido,$telefono,$direccion){
         

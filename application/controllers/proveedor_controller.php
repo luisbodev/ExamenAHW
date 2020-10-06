@@ -23,12 +23,28 @@ class proveedor_controller extends CI_Controller{
         //del modelo
         $proveedor["ver"]=$this->proveedor_model->ver();
          
-        $titulo="Proveedor";
+        $titulo["titulo"]="Proveedor";
         //cargo la cabecera y el pie de página
         $this->load->view("plantillas/cabecera",$titulo);
         //cargo la vista y le paso los datos
         $this->load->view("proveedor/index_view",$proveedor);
         $this->load->view("plantillas/pie");
+    }
+
+    public function buscar(){
+        if($this->input->get("submit")){
+            //llamo al metodo add
+            $proveedor["ver"]=$this->proveedor_model->buscar(
+                $this->input->get("keyword")
+                );
+
+            $titulo["titulo"]="Proveedor";
+            //cargo la cabecera y el pie de página
+            $this->load->view("plantillas/cabecera",$titulo);
+            //cargo la vista y le paso los datos
+            $this->load->view("proveedor/index_view",$proveedor);
+            $this->load->view("plantillas/pie");
+        }
     }
      
     //controlador para añadir
@@ -60,7 +76,7 @@ class proveedor_controller extends CI_Controller{
     //le paso por la url un parametro
     public function mod($id_proveedor){
         if(is_numeric($id_proveedor)){
-        $titulo="Proveedor";
+        $titulo["titulo"]="Proveedor";
           $datos["mod"]=$this->proveedor_model->mod($id_proveedor);
           
           $this->load->view("plantillas/cabecera",$titulo);

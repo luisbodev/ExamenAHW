@@ -10,6 +10,17 @@
                     echo "<div class='alert alert-danger' role='alert'>".$this->session->flashdata('incorrecto')."</div>";
             ?>
         </div>
+        <div class="container">
+            <div class="col-md-6">
+                <form action="<?=base_url("index.php/proveedor_controller/buscar");?>" method="GET">
+                    <label for="">Buscar</label>
+                    <input type="text"  name="keyword" class="form-control"><br>
+                    <input type="submit" name="submit" value="Buscar" class="btn btn-primary">
+                </form>
+            </div>
+
+        </div>
+        <br>
 <table class="table">
   <thead>
     <tr>
