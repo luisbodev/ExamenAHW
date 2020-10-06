@@ -11,7 +11,7 @@
             //llamo o incluyo el modelo
         
             //cargo la libreria de sesiones
-            //$this->load->library("session");
+            $this->load->library("session");
 
        }
 
@@ -21,9 +21,10 @@
            if(isset($_REQUEST['password'])){
                 $this->load->model('login_model');
                 if($this->login_model->login($_REQUEST['username'], $_REQUEST['password'])){
-                    redirect('proveedor_controller');
+                    redirect('pages_controller');
                 }else{
-                    redirect('https://localhost/ExamenAHW/');//colocar una pantalla de error
+                    $this->session->set_flashdata('incorrecto', 'Datos Erroneos');
+                    redirect(base_url());//colocar una pantalla de error
                 }
                 
            }

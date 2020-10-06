@@ -71,6 +71,8 @@
     ?>
   </tbody>
 </table>
+<br>
+<a href="<?=base_url("pages_controller/");?>">Volver</a>
 </center>
 
 

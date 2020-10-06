@@ -1,34 +1,29 @@
 <center>
-<body>
-    <center><h2>Ingresar</h2></center>
-    <div class="container-fluid"> 
+    <br>
+    <br>
+    <h2>Ingresar Sesión</h2>
+    <br>
+    <div class="container"> 
+            <?php
+                if($this->session->flashdata('incorrecto'))
+                    echo "<div class='alert alert-danger' role='alert'>".$this->session->flashdata('incorrecto')."</div>";
+            ?>
         <form action="" method="POST">   
             <div class="row">
                 <div class="col-md-5"></div>
-                <div class="col-md-2">
-
+                <div class="col-md-2 border border-primary rounded">
                             <label for="username"></label>
-                            <input type="text" name="username" id="username" class="form-control" 
-                            placeholder="username">
-                </div>
-                <div class="col-md-5"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-5"></div>
-                <div class="col-md-2">
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Username">
                             <label for="password"></label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
+                            <br>
+                            <input  type="submit" value="Ingresar" class="btn btn-primary">
+                            <br>
+                            <br>
                 </div>
-                <div class="col-md-5"></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4"><input  type="submit" value="Ingresar" class="btn btn-success"></div>
-                <div class="col-md-4"></div>
             </div>
         </form>
     </div>
-    <hr>
+    <br>
+    <br>
 </center>
